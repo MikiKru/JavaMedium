@@ -3,6 +3,7 @@ package pizzaExercises;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class PizzaController {
@@ -71,8 +72,10 @@ public class PizzaController {
                         .collect(Collectors.joining("\n"));                     // zapis do String + \n
     }
     //    Map groupByPrice() - metoda grupujące pizzę po cenie.
-    
-
+    public Map groupByPrice(){
+        return Arrays.stream(Pizza.values())
+                    .collect(Collectors.groupingBy(this::calculatePizzaPice));         // grupowanie po kategorii
+    }                                                                                  // Map<kategoria, Obiekt>
     //    String formatedMenu() - metoda zwracająca string w postaci nazwa_pizzy: składnik1, składnik2, składnik3 - cena, kolejne pizzę oddzielone znakiem nowej linii.
 
 

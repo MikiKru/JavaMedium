@@ -7,7 +7,8 @@ public class Main {
 //        System.out.println(pc.getPizzasWithPrice());
 //        System.out.println(pc.getCheapestSpicy());
 //        System.out.println(pc.findMostExpensiveVegetarian());
-        pc.iLikeMeat().forEach(System.out::println);
-        System.out.println(pc.getPizzasWithMeatIngredients());
+//        pc.iLikeMeat().forEach(System.out::println);
+//        System.out.println(pc.getPizzasWithMeatIngredients());
+        pc.groupByPrice().forEach((key, value) -> System.out.printf("%.2f zł | %s\n", key, value));
     }
 }
