@@ -6,5 +6,6 @@ public class Main {
         PizzaController pc = new PizzaController();
         System.out.println(pc.getPizzasWithPrice());
         System.out.println(pc.getCheapestSpicy());
+        System.out.println(pc.findMostExpensiveVegetarian());
     }
 }
