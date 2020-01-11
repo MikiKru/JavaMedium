@@ -54,7 +54,7 @@ public class PizzaController {
                                 )
                             )
 //                            .sorted(Comparator.reverseOrder())                                      // kolejność odwrotna DESC
-                            .collect(Collectors.toList());                                          // zapis do listy
+                            .collect(Collectors.toList());                                         // zapis do listy
     }
     // pizze wraz z ich składnikami mięsnymi
     public String getPizzasWithMeatIngredients(){
@@ -70,10 +70,8 @@ public class PizzaController {
                         )
                         .collect(Collectors.joining("\n"));                     // zapis do String + \n
     }
-
-
     //    Map groupByPrice() - metoda grupujące pizzę po cenie.
-
+    
 
     //    String formatedMenu() - metoda zwracająca string w postaci nazwa_pizzy: składnik1, składnik2, składnik3 - cena, kolejne pizzę oddzielone znakiem nowej linii.
 
