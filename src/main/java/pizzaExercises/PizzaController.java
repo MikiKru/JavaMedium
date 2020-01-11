@@ -76,6 +76,14 @@ public class PizzaController {
         return Arrays.stream(Pizza.values())
                     .collect(Collectors.groupingBy(this::calculatePizzaPice));         // grupowanie po kategorii
     }                                                                                  // Map<kategoria, Obiekt>
+    // grupowanie pizz po typie składników mięsne bez mięsne
+    public Map groupByMeat(){
+        return Arrays.stream(Pizza.values())
+                .collect(Collectors.groupingBy(pizza -> pizza.getIngredients().stream()
+                                .anyMatch(Ingredient::isMeat)
+                ));         // grupowanie po kategorii
+    }
+
     //    String formatedMenu() - metoda zwracająca string w postaci nazwa_pizzy: składnik1, składnik2, składnik3 - cena, kolejne pizzę oddzielone znakiem nowej linii.
 
 
