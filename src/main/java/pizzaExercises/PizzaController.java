@@ -2,6 +2,7 @@ package pizzaExercises;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class PizzaController {
@@ -38,13 +39,25 @@ public class PizzaController {
                 .filter(pizza -> pizza.getIngredients().stream()
                         .noneMatch(Ingredient::isMeat))                             // filtrowanie pizz nie zawierających składników miesnych
                 .sorted(Comparator.comparing(this::calculatePizzaPice).reversed())  // sortowanie po cenie DESC
-                .findFirst()
-                .get();
+                .findFirst()                                                        // pobranie pierwszego elementu -> Optional
+                .get();                                                             // pobranie wartości z optional
     }
-
     //    List iLikeMeat() - metoda zwracająca same pizzę mięsne, posortowane malejąco po liczbie składników mięsnych.
-
+    public List iLikeMeat(){
+        return Arrays.stream(Pizza.values())                                                        // stream
+                            .filter(pizza -> pizza.getIngredients().stream()
+                                                .anyMatch(Ingredient::isMeat)                       // filtrowanie pizz miesnych
+                            )
+                            .sorted(Comparator.comparing(pizza -> pizza.getIngredients().stream()
+                                                .filter(Ingredient::isMeat)                         // filtrowanie składników miesnych
+                                                .count()                                            // zliczanie składników miesnych
+                                )
+                            )
+                            .sorted(Comparator.reverseOrder())                                      // kolejność odwrotna DESC
+                            .collect(Collectors.toList());                                          // zapis do listy
+    }
     //    Map groupByPrice() - metoda grupujące pizzę po cenie.
+    
 
     //    String formatedMenu() - metoda zwracająca string w postaci nazwa_pizzy: składnik1, składnik2, składnik3 - cena, kolejne pizzę oddzielone znakiem nowej linii.
 
