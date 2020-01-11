@@ -4,6 +4,7 @@ import java.text.NumberFormat;
 import java.util.Comparator;
 import java.util.Locale;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
 // klasa implementująca metody wykorzystujące wyrażenia lambda i stream API
@@ -42,6 +43,46 @@ public class ProjectController {
                 .filter(project -> project.getCategories().equals(categories))// filtrowanie po kategorii występującej w liście kategorii
                 .sorted(Comparator.comparing(Project::getBudget).reversed())  // sortowanie po budżecie DESC
                 .collect(Collectors.toList());                                // zamiana Stream na List
+    }
+    // metoda zwracająca sumę całkowitego dofinansowania wszystkich projektów
+    public double sumAllProjectFounds(){
+        return InMemoryDB.projects.stream()                       // zamiana listy obiektów na stream
+                .mapToDouble(Project::getProjectFounds)           // mapowanie każdego obiektu na wartość dofinansowania (double)
+                .sum();
+    }
+    // oblicz średnie dofinansowanie projektów zawierających kategorie podaną w argumencie
+    public double avgProjectsFoundsContainsCategory(Category category){
+        OptionalDouble avgOptional= InMemoryDB.projects.stream()
+                .filter(project -> project.getCategories().contains(category))
+                .mapToDouble(Project::getProjectFounds)
+                .average();                                                             // Optional<Double
+        return avgOptional.isPresent() ? avgOptional.getAsDouble() : 0;                 // Double
+    }
+    // metoda wypisująca nazwę projektu ilość kategorii oraz nazwy kategorii wypisane po przecinku
+    public String getAllProjectsFormatted(){
+        return InMemoryDB.projects.stream()                         // zamiana listy projektów na Stream
+                .map(project -> String.format("%30s | %2d | %s ",         // mapowanie obiektów z listy do napisu
+                        project.getAcronim(),
+                        project.getCategories().stream()            // zamiana listy kategorii na stream
+                                                    .count(),       // zliczenie kategorii -> long
+                        project.getCategories().stream()            // zamiana listy kategorii na stream
+                                .map(Enum::name)                    // mapowanie nazwy kategorii
+                                .collect(Collectors.joining(", "))  // zamiana listy na String z separatorem ","
+                        )
+                )
+                .collect(Collectors.joining("\n"));          // zamiana stream na String
+    }
+    // metoda zwracająca projekt z największą liczbą pracowników
+    public Project getProjectWithMaxEmployees(){
+        return InMemoryDB.projects.stream()
+                    .sorted(Comparator.comparing(Project::getNoEmployees).reversed())   // sortowanie projektów po noEmplyees DESC
+                    .findFirst()                    // zawarca Optional
+                    .get();                         // pobiera wartość z Optional
+    }
+    // sprawdź czy projekt o podanej nazwie istnieje
+    public boolean existsProject(String acronim){
+        return InMemoryDB.projects.stream()
+                .anyMatch(project -> project.getAcronim().toUpperCase().equals(acronim.toUpperCase()));
     }
 
 }
