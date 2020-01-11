@@ -8,5 +8,6 @@ public class Main {
 //        System.out.println(pc.getCheapestSpicy());
 //        System.out.println(pc.findMostExpensiveVegetarian());
         pc.iLikeMeat().forEach(System.out::println);
+        System.out.println(pc.getPizzasWithMeatIngredients());
     }
 }

@@ -53,11 +53,27 @@ public class PizzaController {
                                                 .count()                                            // zliczanie składników miesnych
                                 )
                             )
-                            .sorted(Comparator.reverseOrder())                                      // kolejność odwrotna DESC
+//                            .sorted(Comparator.reverseOrder())                                      // kolejność odwrotna DESC
                             .collect(Collectors.toList());                                          // zapis do listy
     }
+    // pizze wraz z ich składnikami mięsnymi
+    public String getPizzasWithMeatIngredients(){
+        return Arrays.stream(Pizza.values())                                            // stream
+                        .map(pizza -> String.format(                                    // mapowanie pizzy na String
+                                "%15s | %s",
+                                pizza.getName(),                                        // pobranie nazwy pizzy
+                                pizza.getIngredients().stream()                         // pobranie składników -> Stream
+                                        .filter(Ingredient::isMeat)                     // filtrujemy składniki mięsne
+                                        .map(Ingredient::getName)                       // mapujemy Ingedient na String
+                                        .collect(Collectors.joining(", "))       // zapisujemy do String z separatorem ,
+                                )
+                        )
+                        .collect(Collectors.joining("\n"));                     // zapis do String + \n
+    }
+
+
     //    Map groupByPrice() - metoda grupujące pizzę po cenie.
-    
+
 
     //    String formatedMenu() - metoda zwracająca string w postaci nazwa_pizzy: składnik1, składnik2, składnik3 - cena, kolejne pizzę oddzielone znakiem nowej linii.
 
