@@ -5,7 +5,6 @@ import java.util.List;
 
 import static pizzaExercises.Ingredient.*;
 
-
 public enum Pizza {
     MARGHERITA("Marrgherita", THIN_CRUST, TOMATO_SUACE, CHEESE),
     CAPRI("Capri", THIN_CRUST, TOMATO_SUACE, CHEESE, HAM, MUSHROOMS),
