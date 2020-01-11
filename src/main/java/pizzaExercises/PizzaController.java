@@ -22,11 +22,12 @@ public class PizzaController {
     }
     // Pizza getChepestSpicy() - najtańsza pizza ostra
     public Pizza getCheapestSpicy(){
-        return Arrays.stream(Pizza.values())
-                .filter(pizza -> pizza.getIngredients().stream()
-                .anyMatch(Ingredient::isSpicy))
-                .sorted(Comparator.comparing(this::calculatePizzaPice))
-                .findFirst().get();
+        return Arrays.stream(Pizza.values())                            // stream
+                .filter(pizza -> pizza.getIngredients().stream()        
+                                    .anyMatch(Ingredient::isSpicy))     // filtrowanie tylko pizz z składnikiem ostrym
+                .sorted(Comparator.comparing(pizza -> calculatePizzaPice(pizza))) // sortowanie po sumie cen wszystkich składniów
+                .findFirst()                                            // pobranie pierwszej pozycji Optional
+                .get();                                                 // pobranie wartości
     }
 
     //    Pizza findMostExpensiveVegetarian() - metoda zwracająca najdroższą pizzę wegetariańską.
