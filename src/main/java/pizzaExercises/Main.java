@@ -19,6 +19,6 @@ public class Main {
 //                                key.equals(true) ? "spicy" : "light",
 //                                value));
 //        System.out.println(pc.formatedMenu());
-        System.out.println(pc.formatedMenuWithFilter(pc.findPizzasByNamePattern("c")));
+        System.out.println(pc.formatedMenuWithFilter(pc.findPizzasByNamePattern(" ")));
     }
 }
