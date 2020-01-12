@@ -1,6 +1,7 @@
 package pizzaExercises;
 
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class PizzaController {
@@ -126,5 +127,34 @@ public class PizzaController {
     private String isVegePizza(Pizza pizza){
         return pizza.getIngredients().stream().noneMatch(Ingredient::isMeat) ? "wege" : "";
     }
+    // znajdź wszystkie pizze po nazwie rozpoczynającej się od frazy podanej w argumencie metody
+    public List<Pizza> findPizzasByNamePattern(String word){
+        word = word.toUpperCase();              // porównuje wszystko na wielkich literach
+        String regex = "^"+ word +"[A-Z]{1,}";
+        return Arrays.stream(Pizza.values())
+                .filter(pizza -> pizza.getName().toUpperCase().matches(regex))
+                .collect(Collectors.toList());
+    }
+    public String formatedMenuWithFilter(List<Pizza> pizzas){
+        // zaczynamy od wylosowania pizzy dnia
+        Pizza discountPizza = randomGeneratedPizza();
+        return pizzas.stream()                                                  // stream
+                .map(pizza -> String.format(                                    // mapowanie pizzy na String
+                        "%12s : %-90s | %5s | %4s | %.2f zł %s",
+                        pizza.getName(),                                        // pobranie nazwy pizzy
+                        pizza.getIngredients().stream()                         // pobranie składników -> Stream
+                                .map(Ingredient::getName)                       // mapujemy Ingedient na String
+                                .collect(Collectors.joining(", ")),      // zapisujemy do String z separatorem ,
+                        isSpicyPizza(pizza),
+                        isVegePizza(pizza),
+                        discountPizza.getName().equals(pizza.getName())         // wypisanie ceny (uwzględniając pizze dnia)
+                                ? calculatePizzaPice(pizza) * 0.7 : calculatePizzaPice(pizza),
+                        discountPizza.getName().equals(pizza.getName())         // wypisanie znacznika pizzy dnia
+                                ? "* rabat "+ String.format("%.2f",calculatePizzaPice(pizza)*0.3)+"zł" : ""
+                        )
+                )
+                .collect(Collectors.joining("\n"));
+    }
+
 
 }
