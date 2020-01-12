@@ -83,8 +83,29 @@ public class PizzaController {
                                 .anyMatch(Ingredient::isMeat)
                 ));         // grupowanie po kategorii
     }
-
-    //    String formatedMenu() - metoda zwracająca string w postaci nazwa_pizzy: składnik1, składnik2, składnik3 - cena, kolejne pizzę oddzielone znakiem nowej linii.
-
+    // grupowanie pizz po ostrości składników -> ostra | łagodna
+    public Map groupBySpicy(){
+        return Arrays.stream(Pizza.values())
+                .collect(Collectors.groupingBy(pizza -> pizza.getIngredients().stream()
+                        .anyMatch(Ingredient::isSpicy)
+                ));         // grupowanie po kategorii
+    }
+    //    String formatedMenu() - metoda zwracająca string w postaci
+    //    nazwa_pizzy: składnik1, składnik2, składnik3 - cena, kolejne pizzę oddzielone znakiem nowej linii.
+    //    gdy pizza jest ostra dopisz po składnikach komantarz ostra
+    //    gdy pizza jest wegetariańska dopisz komentarz wege
+    public String formatedMenu(){
+        return Arrays.stream(Pizza.values())                                    // stream
+                .map(pizza -> String.format(                                    // mapowanie pizzy na String
+                        "%12s : %-90s - %.2f zł",
+                        pizza.getName(),                                        // pobranie nazwy pizzy
+                        pizza.getIngredients().stream()                         // pobranie składników -> Stream
+                                .map(Ingredient::getName)                       // mapujemy Ingedient na String
+                                .collect(Collectors.joining(", ")),       // zapisujemy do String z separatorem ,
+                        calculatePizzaPice(pizza)
+                        )
+                )
+                .collect(Collectors.joining("\n"));
+    }
 
 }
