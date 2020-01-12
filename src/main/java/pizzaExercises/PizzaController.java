@@ -96,15 +96,17 @@ public class PizzaController {
         Pizza discountPizza = randomGeneratedPizza();
         return Arrays.stream(Pizza.values())                                    // stream
                 .map(pizza -> String.format(                                    // mapowanie pizzy na String
-                        "%12s : %-90s | %5s | %4s | %.2f zł %1s",
+                        "%12s : %-90s | %5s | %4s | %.2f zł %s",
                         pizza.getName(),                                        // pobranie nazwy pizzy
                         pizza.getIngredients().stream()                         // pobranie składników -> Stream
                                 .map(Ingredient::getName)                       // mapujemy Ingedient na String
                                 .collect(Collectors.joining(", ")),      // zapisujemy do String z separatorem ,
                         isSpicyPizza(pizza),
                         isVegePizza(pizza),
-                        calculatePizzaPice(pizza),
-                        discountPizza.getName().equals(pizza.getName()) ? "*" : ""
+                        discountPizza.getName().equals(pizza.getName())         // wypisanie ceny (uwzględniając pizze dnia)
+                                ? calculatePizzaPice(pizza) * 0.7 : calculatePizzaPice(pizza),
+                        discountPizza.getName().equals(pizza.getName())         // wypisanie znacznika pizzy dnia
+                                ? "* rabat "+ String.format("%.2f",calculatePizzaPice(pizza)*0.3)+"zł" : ""
                         )
                 )
                 .collect(Collectors.joining("\n"));
@@ -115,7 +117,8 @@ public class PizzaController {
         // odwołanie do elementu tablicy Pizza.values() -> Pizza[]
         // random.nextInt(bound) -> 0 - bound -1
         // random.nextInt(Pizza.values().length) - (0 - length - 1)
-        return Pizza.values()[random.nextInt(Pizza.values().length)];        // bound = 5 -> 0 - 4
+        int randomIndex = random.nextInt(Pizza.values().length);
+        return Pizza.values()[randomIndex];        // bound = 13 -> 0 - 12
     }
     private String isSpicyPizza(Pizza pizza){
         return pizza.getIngredients().stream().anyMatch(Ingredient::isSpicy) ? "ostra" : "";
@@ -123,10 +126,5 @@ public class PizzaController {
     private String isVegePizza(Pizza pizza){
         return pizza.getIngredients().stream().noneMatch(Ingredient::isMeat) ? "wege" : "";
     }
-
-//    private Pizza setDiscount(Pizza pizza){
-//        pizza
-//        return
-//    }
 
 }

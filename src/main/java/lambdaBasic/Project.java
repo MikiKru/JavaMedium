@@ -19,4 +19,23 @@ public class Project {
     public double getProjectFounds(){
         return budget * (percentOfFounds / 100);
     }
+
+//    private Boolean objectFlag;
+//    private boolean primitiveFlag;
+//
+//    public boolean isPrimitiveFlag() {
+//        return primitiveFlag;
+//    }
+//
+//    public void setPrimitiveFlag(boolean primitiveFlag) {
+//        this.primitiveFlag = primitiveFlag;
+//    }
+//
+//    public Boolean getObjectFlag() {
+//        return objectFlag;
+//    }
+//
+//    public void setObjectFlag(Boolean objectFlag) {
+//        this.objectFlag = objectFlag;
+//    }
 }

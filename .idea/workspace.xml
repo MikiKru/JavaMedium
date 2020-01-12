@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="becccbea-c436-41e2-a584-5a2c1f8506cb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lambdaBasic/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lambdaBasic/Project.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pizzaExercises/PizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pizzaExercises/PizzaController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/pizzaExercises/Pizza.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
-              <caret line="21" column="10" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="10" />
+              <caret line="21" column="88" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="21" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1725#1726#0" expanded="true" />
@@ -50,8 +51,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pizzaExercises/PizzaController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="106" column="41" lean-forward="true" selection-start-line="106" selection-start-column="41" selection-end-line="106" selection-end-column="41" />
+            <state relative-caret-position="373">
+              <caret line="108" column="46" selection-start-line="108" selection-start-column="46" selection-end-line="108" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lambdaBasic/Project.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="39" column="7" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="39" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,7 +114,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/lambdaBasic/InMemoryDB.java" />
         <option value="$PROJECT_DIR$/src/main/java/lambdaBasic/Category.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lambdaBasic/Project.java" />
         <option value="$PROJECT_DIR$/src/main/java/lambdaBasic/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/lambdaBasic/ProjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pizzaExercises/Pizza.java" />
@@ -109,6 +121,7 @@
         <option value="$PROJECT_DIR$/src/main/java/dziedziczenie/Type.java" />
         <option value="$PROJECT_DIR$/src/main/java/dziedziczenie/Reptile.java" />
         <option value="$PROJECT_DIR$/src/main/java/pizzaExercises/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lambdaBasic/Project.java" />
         <option value="$PROJECT_DIR$/src/main/java/pizzaExercises/PizzaController.java" />
       </list>
     </option>
@@ -184,7 +197,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578815917639" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578817428618" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -255,7 +268,7 @@
       <option name="presentableId" value="Default" />
       <updated>1578729049708</updated>
       <workItem from="1578729053712" duration="24800000" />
-      <workItem from="1578811600930" duration="3852000" />
+      <workItem from="1578811600930" duration="5229000" />
     </task>
     <task id="LOCAL-00001" summary="pizza menu">
       <created>1578813938391</created>
@@ -264,17 +277,24 @@
       <option name="project" value="LOCAL" />
       <updated>1578813938391</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="pizza menu with discount">
+      <created>1578816143719</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1578816143719</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28652000" />
+    <option name="totallyTimeSpent" value="30029000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1590604" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1590604" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -283,7 +303,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12889518" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -311,7 +331,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pizza menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="pizza menu" />
+    <MESSAGE value="pizza menu with discount" />
+    <option name="LAST_COMMIT_MESSAGE" value="pizza menu with discount" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/lambdaBasic/InMemoryDB.java">
@@ -322,18 +343,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#398#399#0" expanded="true" />
             <element signature="e#428#429#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lambdaBasic/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="18" selection-start-line="18" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -376,18 +385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaExercises/Pizza.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1725#1726#0" expanded="true" />
-            <element signature="e#1752#1753#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lambdaBasic/ProjectController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -398,10 +395,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pizzaExercises/Pizza.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" column="88" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="21" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1725#1726#0" expanded="true" />
+            <element signature="e#1752#1753#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lambdaBasic/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="7" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="39" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pizzaExercises/PizzaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="106" column="41" lean-forward="true" selection-start-line="106" selection-start-column="41" selection-end-line="106" selection-end-column="41" />
+        <state relative-caret-position="373">
+          <caret line="108" column="46" selection-start-line="108" selection-start-column="46" selection-end-line="108" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
