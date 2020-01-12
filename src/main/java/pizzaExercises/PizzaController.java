@@ -130,7 +130,7 @@ public class PizzaController {
     // znajdź wszystkie pizze po nazwie rozpoczynającej się od frazy podanej w argumencie metody
     public List<Pizza> findPizzasByNamePattern(String word){
         word = word.toUpperCase();              // porównuje wszystko na wielkich literach
-        String regex = "^"+ word +"[A-Z]{1,}";
+        String regex = "^"+ word +"[A-Z]{0,}\\s{0,1}[A-Z]{0,}";
         return Arrays.stream(Pizza.values())
                 .filter(pizza -> pizza.getName().toUpperCase().matches(regex))
                 .collect(Collectors.toList());
